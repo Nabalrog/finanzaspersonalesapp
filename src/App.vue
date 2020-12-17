@@ -6,7 +6,7 @@
       <nav>
         <button v-on:click="init" v-if="is_auth" > Inicio </button>
         <button v-on:click="getBalance" v-if="is_auth"> Obtener 1 gasto</button>
-        <button v-on:click="getGastos" v-if="is_auth" > Gastos </button>
+        <button v-on:click="getGastos" v-if="is_auth" > Registrar este gasto y obtener todos los gastos </button>
         <button v-if="is_auth" >Cerrar Sesión</button>
       </nav>
     </div>
@@ -43,8 +43,8 @@ methods: {
       },
 
       getBalance: function(){
-        if(this.$route.name != "user_balance"){
-          let username = localStorage.getItem("current_username")
+        if(this.$route.name != "nombreGasto"){
+         
          this.$router.push({name: "nombreGasto", params:{ nombreGasto: 'gasto1' }})
         }
       },

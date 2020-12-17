@@ -1,9 +1,6 @@
 <template>
   <div id="Gastos">
-    
-    
-
-    <span>tu gasto fue  {{detail}}</span>
+    <span>tu gasto fue {{ detail }}</span>
   </div>
 </template>
 
@@ -13,23 +10,18 @@ export default {
   name: "Gastos",
   data: function () {
     return {
-        body:{nombreGasto:"elefante",
-        valor:23444},
-        
-        detail:0
-     
+      body: { nombreGasto: "elefante", valor: 23444 },
+
+      detail: 0,
     };
   },
-  
+
   created: function () {
     this.Gastos = this.$route.params.Gastos;
 
-   
     let self = this;
     axios
-      .post(
-        "http://finanzaspersonalesapi.herokuapp.com/DataIn/", this.body
-      )
+      .post("http://finanzaspersonalesapi.herokuapp.com/DataIn/", this.body)
       .then((result) => {
         self.detail = result.data;
       })
@@ -38,14 +30,9 @@ export default {
       });
   },
 
-    beforeCreate: function(){
-    
-    
-     
-  }
+  beforeCreate: function () {},
 };
 </script>
 
 <style>
-
 </style>

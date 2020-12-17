@@ -1,6 +1,6 @@
 <template>
   <div id="UserBalance">
-    <h2>{{ username }}</h2>
+   
     <h2>
       Tus gastos son: <span>{{ detail }} COP </span>
     </h2>
@@ -13,7 +13,7 @@ export default {
   name: "UserBalance",
   data: function () {
     return {
-      username: "",
+     
       detail: 0,
     };
   },
