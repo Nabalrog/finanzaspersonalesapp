@@ -2,9 +2,12 @@
   <div id="UserBalance">
    
     <h2>
-      Tus gastos registrados son: <span>{{ detail }} COP </span>
+      Tus gastos registrados son: <span> </span>
     </h2>
-  </div>
+<div>
+  {{ detail }}
+</div>
+</div>
 </template>
 
 <script>
@@ -14,11 +17,11 @@ export default {
   data: function () {
     return {
      
-      detail: 0,
+      detail: "",
     };
   },
   created: function () {
-    this.nombreGasto = this.$route.params.nombreGasto;
+
 
     let self = this;
     axios
