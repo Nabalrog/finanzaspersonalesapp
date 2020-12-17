@@ -2,7 +2,7 @@
   <div id="UserBalance">
    
     <h2>
-      Tus gastos son: <span>{{ detail }} COP </span>
+      Tus gastos registrados son: <span>{{ detail }} COP </span>
     </h2>
   </div>
 </template>
@@ -22,9 +22,9 @@ export default {
 
     let self = this;
     axios
-      .get("http://finanzaspersonalesapi.herokuapp.com/DataOut/" + this.nombreGasto)
+      .get("http://finanzaspersonalesapi.herokuapp.com/DataOut/")
       .then((result) => {
-        self.detail = result.data.valor;
+        self.detail = result.data;
       })
       .catch((error) => {
         alert("ERROR Servidor"+error);
