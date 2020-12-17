@@ -1,7 +1,8 @@
 import vueRouter from 'vue-router'
 import User from './components/User'
-import nombreGasto from './components/UserBalance'
+import UserBalance from './components/UserBalance'
 import App from './App'
+import Gastos from './components/Gastos'
 
 const router = new vueRouter({
         mode: 'history',
@@ -13,14 +14,19 @@ const router = new vueRouter({
                 component: App
             },
             {
-                path: '/user/:username',
+                path: '/user/:user',
                 name: "user",
                 component: User
             },
             {
                 path: '/DataOut/:nombreGasto',
                 name: "nombreGasto",
-                component: nombreGasto
+                component: UserBalance
+            },
+            {
+                path: '/DataIn/',
+                name: "Gastos",
+                component: Gastos
             },
         ]
     })

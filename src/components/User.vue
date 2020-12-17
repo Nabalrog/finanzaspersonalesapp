@@ -1,6 +1,13 @@
 <template>
     <div id="User">
         <h2>Hola  <span> {{username}}, </span>  ¡Bienvenido!</h2>
+        <h2>
+      Registra tu gasto:
+    </h2>
+
+    <input v-model="nombreGasto" placeholder="nombre gasto">
+
+<input v-model.number="valor" type="number" placeholder="valor">
     </div>
 </template>
 
@@ -9,7 +16,10 @@
         name: "User",
         data:function(){
             return {
-                username: "none"
+                username: "none",
+                nombreGasto:"",
+                valor:0
+
             }
         },
         created: function() {

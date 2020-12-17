@@ -6,16 +6,19 @@
       <nav>
         <button v-on:click="init" v-if="is_auth" > Inicio </button>
         <button v-on:click="getBalance" v-if="is_auth"> Obtener 1 gasto</button>
-        <button v-if="is_auth" > Transacción </button>
+        <button v-on:click="getGastos" v-if="is_auth" > Gastos </button>
         <button v-if="is_auth" >Cerrar Sesión</button>
       </nav>
     </div>
+
     <div class="main-component">
       <router-view></router-view>
     </div>
+
     <div class="footer">
       <h2>Misión TIC 2022</h2>
     </div>
+    
   </div>
 </template>
 
@@ -46,11 +49,19 @@ methods: {
         }
       },
 
+      getGastos: function(){
+        if(this.$route.name != "Gastos"){
+          let username = localStorage.getItem("current_username")
+         this.$router.push({name: "Gastos"})
+        }
+      },
+
     },
 
     beforeCreate: function(){
       localStorage.setItem('current_username', 'camilo24')
       localStorage.setItem('isAuth', true)
+      this.$router.push({name: "user", params:{ username: "camilo24" }})
 
     }
 };
