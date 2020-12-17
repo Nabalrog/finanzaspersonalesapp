@@ -5,8 +5,8 @@
       <h1>FINANZAS PERSONALES</h1>
       <nav>
         <button v-on:click="init" v-if="is_auth" > Inicio </button>
-        <button v-on:click="getBalance" v-if="is_auth"> Obtener 1 gasto</button>
-        <button v-on:click="getGastos" v-if="is_auth" > Registrar este gasto y obtener todos los gastos </button>
+        <button v-on:click="getBalance" v-if="is_auth"> Obtener total de gastos</button>
+        <button v-on:click="getGastos" v-if="is_auth" > Registrar gasto y obtener todos los gastos </button>
         <button v-if="is_auth" >Cerrar Sesión</button>
       </nav>
     </div>
@@ -51,7 +51,7 @@ methods: {
 
       getGastos: function(){
         if(this.$route.name != "Gastos"){
-          let username = localStorage.getItem("current_username")
+         
          this.$router.push({name: "Gastos"})
         }
       },

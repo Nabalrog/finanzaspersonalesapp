@@ -5,9 +5,7 @@
       Registra tu gasto:
     </h2>
 
-    <input v-model="nombreGasto" placeholder="nombre gasto">
-
-<input v-model.number="valor" type="number" placeholder="valor">
+    
     </div>
 </template>
 

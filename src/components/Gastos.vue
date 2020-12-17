@@ -1,6 +1,10 @@
 <template>
   <div id="Gastos">
     <span>tu gasto fue {{ detail }}</span>
+    <input v-model="nombreGasto" placeholder="nombre gasto" />
+
+    <input v-model.number="valor" type="number" placeholder="valor" />
+    <button v-on:click="GuardarGasto" > Registrar este gasto y obtener todos los gastos </button>
   </div>
 </template>
 
@@ -10,18 +14,23 @@ export default {
   name: "Gastos",
   data: function () {
     return {
-      body: { nombreGasto: "elefante", valor: 23444 },
+      nombreGasto: "elefante",
+      valor: 23444,
 
       detail: 0,
     };
   },
-
-  created: function () {
+methods:{
+  GuardarGasto: function () {
     this.Gastos = this.$route.params.Gastos;
-
-    let self = this;
+    
+    let bodyIn = {
+      nombreGasto: this.nombreGasto,
+      valor: this.valor,
+    };
+   var self = this;
     axios
-      .post("http://finanzaspersonalesapi.herokuapp.com/DataIn/", this.body)
+      .post("http://finanzaspersonalesapi.herokuapp.com/DataIn/", bodyIn)
       .then((result) => {
         self.detail = result.data;
       })
@@ -29,9 +38,8 @@ export default {
         alert("ERROR Servidor" + error);
       });
   },
-
-  beforeCreate: function () {},
-};
+}
+}
 </script>
 
 <style>
