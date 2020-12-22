@@ -26,13 +26,13 @@ export default {
 methods:{
   GuardarFrase: function () {
 
-    let bodyIn = {
+    let body2 = {
       nombreFrase: this.nombreFrase,
       frase: this.frase,
     };
    var self = this;
     axios
-      .post("https://finanzaspersonalesapi5.herokuapp.com/DataIn/intfinanciera", bodyIn)
+      .post("https://finanzaspersonalesapi5.herokuapp.com/DataIn/intfinanciera/", body2)
       .then((result) => {
         self.detail = this.$alert("tu frase ha sido registrada")
         
