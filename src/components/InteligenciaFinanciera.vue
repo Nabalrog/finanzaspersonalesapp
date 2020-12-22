@@ -32,7 +32,7 @@ methods:{
     };
    var self = this;
     axios
-      .post("https://finanzaspersonalesapi5.herokuapp.com/DataIn/intfinanciera", bodyIn)
+      .post("https://finanzaspersonalesapi5.herokuapp.com/DataIn/intfinanciera/", bodyIn)
       .then((result) => {
         self.detail = this.$alert("tu frase ha sido registrada")
         
