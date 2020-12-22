@@ -1,40 +1,40 @@
 <template>
   <div id="User">
-    <span>Digita tu nuevo gasto:</span>
+    <span>Digita tu nuevo frase motivacional:</span>
 
     
-    <input v-model="nombreGasto" placeholder="nombre gasto" />
+    <input v-model="nombreFrase" placeholder="Nombre de la frase motivacional" />
 
-    <input v-model.number="valor" type="number" placeholder="valor" />
-    <span><button v-on:click="GuardarGasto" > Registrar este gasto </button></span>
+    <input v-model="frase" placeholder="Contenido de la frase" />
+
+    <span><button v-on:click="GuardarFrase" > Registrar esta frase </button></span>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 export default {
-  name: "Gastos",
+  name: "Frases",
   data: function () {
     return {
-      nombreGasto: "elefante",
-      valor: 23444,
+      nombreFrase: "elefante",
+      frase: "elefante32",
 
       detail:"",
     };
   },
 methods:{
-  GuardarGasto: function () {
-    this.Gastos = this.$route.params.Gastos;
-    
+  GuardarFrase: function () {
+
     let bodyIn = {
-      nombreGasto: this.nombreGasto,
-      valor: this.valor,
+      nombreFrase: this.nombreFrase,
+      frase: this.frase,
     };
    var self = this;
     axios
-      .post("https://finanzaspersonalesapi5.herokuapp.com/DataIn/", bodyIn)
+      .post("https://finanzaspersonalesapi5.herokuapp.com/DataIn/intfinanciera", bodyIn)
       .then((result) => {
-        self.detail = this.$alert("tu gasto ha sido registrado")
+        self.detail = this.$alert("tu frase ha sido registrada")
         
       })
       .catch((error) => {

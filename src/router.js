@@ -3,6 +3,7 @@ import User from './components/User'
 import UserBalance from './components/UserBalance'
 import App from './App'
 import Gastos from './components/Gastos'
+import InteligenciaFinanciera from './components/InteligenciaFinanciera'
 
 const router = new vueRouter({
         mode: 'history',
@@ -27,6 +28,11 @@ const router = new vueRouter({
                 path: '/DataIn/',
                 name: "Gastos",
                 component: Gastos
+            },
+            {
+                path: '/DataIn/intfinanciera',
+                name: "intfinanciera",
+                component: InteligenciaFinanciera
             },
         ]
     })
